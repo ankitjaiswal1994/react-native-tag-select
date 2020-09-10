@@ -17,6 +17,9 @@ TagSelectItem.propTypes = {
   // Indicate if the item is selected
   selected: PropTypes.bool,
 
+  // Indicate if the item is selected
+  disabled: PropTypes.bool,
+
   // Touch
   activeOpacity: PropTypes.number,
 
@@ -32,7 +35,10 @@ TagSelectItem.propTypes = {
   itemStyle: ViewPropTypes.style,
   itemStyleSelected: ViewPropTypes.style,
   itemLabelStyle: PropTypes.any,
-  itemLabelStyleSelected: PropTypes.any
+  itemLabelStyleSelected: PropTypes.any,
+
+  itemStyleDisabled: ViewPropTypes.style,
+  labelStyleDisabled: ViewPropTypes.style
 }
 
 TagSelectItem.defaultProps = {
@@ -49,6 +55,7 @@ TagSelectItem.defaultProps = {
 }
 
 function TagSelectItem (props) {
+  console.log(props.isRecommended);
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -61,7 +68,7 @@ function TagSelectItem (props) {
             styles[`${props.theme}Inner`],
             props.itemStyle,
             props.selected && styles[`${props.theme}InnerSelected`],
-            props.selected && props.itemStyleSelected
+            props.isRecommended && props.disabled ? props.itemStyleDisabled  : props.selected && props.itemStyleSelected
           ]}
         >
           <Text
@@ -70,7 +77,7 @@ function TagSelectItem (props) {
               styles[`${props.theme}LabelText`],
               props.itemLabelStyle,
               props.selected && styles[`${props.theme}LabelTextSelected`],
-              props.selected && props.itemLabelStyleSelected
+              props.isRecommended && props.disabled ? props.labelStyleDisabled : props.selected && props.itemLabelStyleSelected
             ]}
           >
             {props.label}
