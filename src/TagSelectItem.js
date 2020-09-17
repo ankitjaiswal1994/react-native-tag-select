@@ -55,7 +55,6 @@ TagSelectItem.defaultProps = {
 }
 
 function TagSelectItem (props) {
-  console.log(props.isRecommended);
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -91,7 +90,7 @@ function TagSelectItem (props) {
 const styles = StyleSheet.create({
   container: {
     marginBottom: 10,
-    marginRight: 10
+    marginRight: 8
   },
   inner: {
     padding: 10,

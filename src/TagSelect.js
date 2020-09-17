@@ -131,8 +131,8 @@ class TagSelect extends React.Component {
               {...this.props}
               label={i[this.props.labelAttr] ? i[this.props.labelAttr] : i}
               key={i[this.props.keyAttr] ? i[this.props.keyAttr] : i}
-              onPress={this.props.isRecommended && i.disabled ? null : this.handleSelectItem.bind(this, i)}
-              disabled={i.disabled}
+              onPress={this.props.isRecommended && i.is_recommended ? null : this.handleSelectItem.bind(this, i)}
+              disabled={i.is_recommended}
               selected={(this.state.value[i[this.props.keyAttr]] || this.state.value[i]) && true}
             />
           )
